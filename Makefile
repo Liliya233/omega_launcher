@@ -4,7 +4,7 @@ TARGETS:=build/ linux-amd64
 ifneq ($(wildcard /usr/bin/aarch64-linux-gnu-gcc),)
 	TARGETS:=${TARGETS} linux-arm64
 endif
-ifneq (${THEOS},)
+ifneq ($(wildcard `pwd`/archs/macos.sh),)
 	TARGETS:=${TARGETS} macos-amd64 macos-arm64
 endif
 ifneq ($(wildcard ${HOME}/android-ndk-r25c),)
