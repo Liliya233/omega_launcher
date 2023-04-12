@@ -55,8 +55,8 @@ jobs:
         make all
 
     - name: Provide release version
-        id: release_version
-        run: echo v"release_version=$(cat VERSION)"  >> $GITHUB_OUTPUT
+      id: release_version
+      run: echo v"release_version=$(cat VERSION)"  >> $GITHUB_OUTPUT
 
     - name: Release
       uses: softprops/action-gh-release@v0.1.14
