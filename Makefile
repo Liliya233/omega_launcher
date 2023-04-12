@@ -19,8 +19,8 @@ SRCS_GO := $(foreach dir, $(shell find . -type d), $(wildcard $(dir)/*.go $(dir)
 all: ${TARGETS}
 linux-amd64: build/omega_launcher_linux_amd64
 linux-arm64: build/omega_launcher_linux_arm64
-macos-amd64: build/omega_launcher_macos_amd64
-macos-arm64: build/omega_launcher_macos_arm64
+macos-amd64: build/omega_launcher_darwin_amd64
+macos-arm64: build/omega_launcher_darwin_arm64
 android-amd64: build/omega_launcher_android_amd64
 android-arm64: build/omega_launcher_android_arm64
 windows-amd64: build/omega_launcher_windows_amd64.exe
