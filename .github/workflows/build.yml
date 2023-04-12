@@ -7,7 +7,6 @@ on:
       - "VERSION"
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -88,6 +87,7 @@ jobs:
 
     - name: Build
       run: |
+        export THEOS=~/theos
         make all
 
     - name: Provide release version
