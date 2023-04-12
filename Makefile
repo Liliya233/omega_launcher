@@ -42,7 +42,7 @@ build/android-arm64: build/ ${HOME}/android-ndk-r25c/toolchains/llvm/prebuilt/li
 	CGO_ENABLED=1 GOOS=android GOARCH=arm64 CGO_LDFLAGS="-Wl,-rpath,/data/data/com.termux/files/usr/lib" CC=${HOME}/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android33-clang CXX=${HOME}/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android33-clang++ go build -trimpath -ldflags "-s -w -extldflags -static-libstdc++" -o ./build/omega_launcher_android_arm64
 build/windows-amd64.exe: build/ /usr/bin/x86_64-w64-mingw32-gcc ${SRCS_GO}
 	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 CC=/usr/bin/x86_64-w64-mingw32-gcc go build -trimpath -ldflags "-s -w" -o ./build/omega_launcher_windows_amd64.exe
-build/windows-arm64.exe: build/ /usr/bin/aarch64-w64-mingw32-gcc ${SRCS_GO}
+build/windows-arm64.exe: build/ /usr/bin/x86_64-w64-mingw32-gcc ${SRCS_GO}
 	CGO_ENABLED=0 GOOS=windows GOARCH=arm64 CC=/usr/bin/x86_64-w64-mingw32-gcc go build -trimpath -ldflags "-s -w" -o ./build/omega_launcher_windows_arm64.exe
 
 clean:
