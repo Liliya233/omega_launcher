@@ -41,7 +41,7 @@ jobs:
     - name: Install compilers
       run: |
         sudo apt update
-        sudo apt install gcc-mingw-w64-x86-64 gcc-mingw-w64-arm64 gcc gcc-aarch64-linux-gnu -y
+        sudo apt install gcc-mingw-w64-x86-64 gcc gcc-aarch64-linux-gnu -y
       
     - name: Setup theos's dependencies
       run: sudo apt install fakeroot git perl zip unzip rename build-essential libtinfo5 libplist-utils brotli
