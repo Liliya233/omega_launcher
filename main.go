@@ -87,6 +87,9 @@ func main() {
 		launcherConfig.RentalCode = utils.GetValidInput("请输入租赁服号")
 		launcherConfig.RentalPasswd = utils.GetPswInput("请输入租赁服密码")
 	}
+	if utils.GetInputYN("需要修改验证服务器地址吗?") {
+		launcherConfig.AuthServer = utils.GetValidInput("请输入验证服务器地址")
+	}
 	// 询问是否使用Omega
 	if launcherConfig.StartOmega = utils.GetInputYN("需要启动 Omega 吗?"); launcherConfig.StartOmega {
 		// 配置群服互通

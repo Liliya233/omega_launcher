@@ -28,6 +28,11 @@ func setupCmdArgs(cfg *launcher.Config) []string {
 		args = append(args, "--plain-token")
 		args = append(args, cfg.FBToken)
 	}
+	// 验证服务器
+	if cfg.AuthServer != "" {
+		args = append(args, "-A")
+		args = append(args, cfg.AuthServer)
+	}
 	return args
 }
 
