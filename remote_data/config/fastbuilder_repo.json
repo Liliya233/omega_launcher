@@ -10,23 +10,5 @@
         "Url": "https://github.com/LNSSPsd/PhoenixBuilder/releases/download/",
         "IsGithub": true,
         "IsPreRelease": true
-    },
-    {
-        "Name": "海的官方镜像仓库",
-        "Url": "https://likemc.xyz/build/",
-        "IsGithub": false,
-        "IsPreRelease": false
-    },
-    {
-        "Name": "rnhws-Team 预览版仓库",
-        "Url": "https://github.com/rnhws-Team/PhoenixBuilder/releases/latest/download/",
-        "IsGithub": true,
-        "IsPreRelease": false
-    },
-    {
-        "Name": "Liliya's Personal Repo",
-        "Url": "https://github.com/Liliya233/PhoenixBuilder/releases/latest/download/",
-        "IsGithub": true,
-        "IsPreRelease": false
     }
 ]

@@ -18,7 +18,7 @@ var (
 	MIRROR_URLs = []string{
 		// 使用此项目搭建: https://github.com/hunshcn/gh-proxy
 		"https://www.omega-download.top/",
-		"https://ghproxy.com/",
+		"https://mirror.ghproxy.com/",
 	}
 )
 
