@@ -88,7 +88,6 @@ func initCQConfig() {
 		SignServer = "-"
 	}
 	cfgStr = strings.Replace(cfgStr, "[SignServer地址]", SignServer, 1)
-	cfgStr = strings.Replace(cfgStr, "[IsLowVersionSignServer]", "false", 1)
 	cfgStr = strings.Replace(cfgStr, "[SignServerKey]", "114514", 1)
 	// 写入新配置
 	writeCQConfig(cfgStr)

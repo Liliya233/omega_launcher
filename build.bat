@@ -25,7 +25,6 @@ SET CGO_ENABLED=0
         SET GOOS=linux
         go build -ldflags="-w -s" -trimpath -o ./build/omega_launcher_linux_arm64
 
-:: 以下为安卓编译, 编译前请先指定ndk路径
 SET CGO_ENABLED=1
     SET GOOS=android
         :: Android arm64
