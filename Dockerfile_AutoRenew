@@ -27,7 +27,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list \
     && echo "/ome/omega_launcher_linux_amd64" >> /ome/launcher_liliya \
     && chmod +x /ome/launcher_liliya \
     && mkdir -p /root/.config && mkdir -p /root/.config/fastbuilder \
-    && echo -n 'zh_CN' > /root/.config/fastbuilder/language
+    && echo -n 'en_US' > /root/.config/fastbuilder/language
 
 WORKDIR /workspace
 
