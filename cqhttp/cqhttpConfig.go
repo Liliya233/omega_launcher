@@ -17,18 +17,17 @@ import (
 var defaultConfigBytes []byte
 
 // Copy from go-cqhttp
-// Account 账号配置
-type Account struct {
-	Uin                    int64  `yaml:"uin"`
-	Password               string `yaml:"password"`
-	SignServer             string `yaml:"sign-server"`
-	IsLowVersionSignServer bool   `yaml:"is-below-110"`
-	SignServerKey          string `yaml:"key"`
-}
-
 // Config 总配置文件
 type CQHttpConfig struct {
-	Account *Account `yaml:"account"`
+	Account *struct {
+		Uin         int64  `yaml:"uin"`
+		Password    string `yaml:"password"`
+		SignServers []*struct {
+			Url           string `yaml:"url"`
+			Key           string `yaml:"key"`
+			Authorization string `yaml:"authorization"`
+		} `yaml:"sign-servers"`
+	} `yaml:"account"`
 }
 
 // 从cqhttp配置里读取QQ账密信息
@@ -60,15 +59,15 @@ func updateCQConfigAddress(wsAddress string) {
 		// 保留账密信息
 		cfgStr = strings.Replace(cfgStr, "[QQ账号]", fmt.Sprint(cqCfg.Account.Uin), 1)
 		cfgStr = strings.Replace(cfgStr, "[QQ密码]", cqCfg.Account.Password, 1)
-		cfgStr = strings.Replace(cfgStr, "[SignServer地址]", cqCfg.Account.SignServer, 1)
-		cfgStr = strings.Replace(cfgStr, "[IsLowVersionSignServer]", fmt.Sprint(cqCfg.Account.IsLowVersionSignServer), 1)
-		cfgStr = strings.Replace(cfgStr, "[SignServerKey]", cqCfg.Account.SignServerKey, 1)
+		if len(cqCfg.Account.SignServers) > 0 {
+			cfgStr = strings.Replace(cfgStr, "[SignServer地址]", cqCfg.Account.SignServers[0].Url, 1)
+			cfgStr = strings.Replace(cfgStr, "[SignServerKey]", cqCfg.Account.SignServers[0].Key, 1)
+		}
 	} else {
 		// 默认配置
 		cfgStr = strings.Replace(cfgStr, "[QQ账号]", "1233456", 1)
 		cfgStr = strings.Replace(cfgStr, "[QQ密码]", "", 1)
 		cfgStr = strings.Replace(cfgStr, "[SignServer地址]", "-", 1)
-		cfgStr = strings.Replace(cfgStr, "[IsLowVersionSignServer]", "false", 1)
 		cfgStr = strings.Replace(cfgStr, "[SignServerKey]", "114514", 1)
 	}
 	// 写入新配置
