@@ -51,13 +51,8 @@ func Run(launcherCfg *launcher.Config) {
 	qGroupCfgFp, qGuildCfgFp := updateOmegaConfigAddress(availableAddress)
 	// 启动前保存一次启动器配置
 	launcher.SaveConfig(launcherCfg)
-	// 是否启动 Sign Server
-	startingSignServerAddress := ""
-	if launcherCfg.EnableSignServer {
-		startingSignServerAddress = SignServerStart()
-	}
 	// 更新cq配置
-	updateCQConfigAddress(availableAddress, startingSignServerAddress)
+	updateCQConfigAddress(availableAddress)
 	// 给予执行权限
 	os.Chmod(GetCqHttpExec(), 0755)
 	// 配置执行目录

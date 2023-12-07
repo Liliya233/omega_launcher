@@ -103,7 +103,6 @@ func main() {
 			}
 			launcherConfig.BlockCQHttpOutput = utils.GetInputYN("需要在配置完成后屏蔽 go-cqhttp 的输出吗?")
 			cqhttp.CQHttpEnablerHelper()
-			launcherConfig.EnableSignServer = utils.GetInputYN("需要启动器启动 Sign Server 吗?")
 			cqhttp.Run(launcherConfig)
 		}
 	}

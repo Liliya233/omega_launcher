@@ -24,7 +24,6 @@ type Config struct {
 	StartOmega        bool        `json:"是否启动Omega"`
 	UpdateFB          bool        `json:"是否更新FB"`
 	BlockCQHttpOutput bool        `json:"是否屏蔽go-cqhttp的内容输出"`
-	EnableSignServer  bool        `json:"是否使用SignServer"`
 }
 
 // 保存配置文件

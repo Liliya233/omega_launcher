@@ -54,18 +54,12 @@ func writeCQConfig(cfgStr string) {
 }
 
 // 更新cqhttp配置文件的地址
-func updateCQConfigAddress(wsAddress, signServerAddress string) {
+func updateCQConfigAddress(wsAddress string) {
 	cfgStr := strings.Replace(string(defaultConfigBytes), "[WS地址]", wsAddress, 1)
 	if cqCfg := getCQConfig(); cqCfg != nil {
 		// 保留账密信息
 		cfgStr = strings.Replace(cfgStr, "[QQ账号]", fmt.Sprint(cqCfg.Account.Uin), 1)
 		cfgStr = strings.Replace(cfgStr, "[QQ密码]", cqCfg.Account.Password, 1)
-		// SignServer
-		if signServerAddress != "" {
-			cqCfg.Account.SignServer = signServerAddress
-			cqCfg.Account.IsLowVersionSignServer = false
-			cqCfg.Account.SignServerKey = "114514"
-		}
 		cfgStr = strings.Replace(cfgStr, "[SignServer地址]", cqCfg.Account.SignServer, 1)
 		cfgStr = strings.Replace(cfgStr, "[IsLowVersionSignServer]", fmt.Sprint(cqCfg.Account.IsLowVersionSignServer), 1)
 		cfgStr = strings.Replace(cfgStr, "[SignServerKey]", cqCfg.Account.SignServerKey, 1)
