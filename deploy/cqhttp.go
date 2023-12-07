@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	cqhttpDownloadUrl = "https://github.com/Liliya233/go-cqhttp/releases/download/Latest/"
+	cqhttpDownloadUrl = "https://github.com/Liliya233/go-cqhttp/releases/latest/download/"
 )
 
 func isCQHttpCache() bool {
